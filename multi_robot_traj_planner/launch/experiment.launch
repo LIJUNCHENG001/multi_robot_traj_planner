@@ -1,0 +1,128 @@
+<!-- 
+	PLAN_RBP_RANDOM_FOREST.LAUNCH
+	Multi-agent Trajectory Planning and Simulation using Relative Bernstein Polynomial
+        
+	Usage: At terminal
+               ``` 
+               roslaunch multi_robot_traj_planner plan_rbp_random_forest.launch
+               ```
+
+	Jungwon Park
+	Lab for Autonomous Robotics Research
+	Seoul National Univ. 
+	wjstk335@gmail.com
+-->
+
+<launch>
+<!-- Arguments Start -->
+
+  <!-- Simulation -->
+  <arg name="runsim"                default="true"/>
+  <arg name="log"                   default="false"/>
+  <arg name="bag_record"            default="false"/>
+
+  <arg name="mission"               default="experiment.json"/>
+  <arg name="replay"                default="true"/>
+  <arg name="replay_map"            default="delta.bt"/>
+  
+  <!-- Environment -->
+  <arg name="world_x_min"           default="-10"/>
+  <arg name="world_y_min"           default="-10"/>
+  <arg name="world_z_min"           default="0.1"/>
+  <arg name="world_x_max"           default="10"/>
+  <arg name="world_y_max"           default="10"/>
+  <arg name="world_z_max"           default="1"/>
+  <arg name="world_resolution"      default="0.025"/>
+
+  <!-- Obstacles -->
+  <arg name="world_obs_num"         default="12"/>
+  <arg name="world_r_min"           default="0.3"/>
+  <arg name="world_r_max"           default="0.3"/>
+  <arg name="world_h_min"           default="1.0"/>
+  <arg name="world_h_max"           default="2.5"/>
+  <arg name="world_margin"          default="0.5"/>
+  
+  <!-- InitTrajPlanner Parameters -->
+  <arg name="ecbs_w"                default="1.3"/>
+  <arg name="grid_xy_res"           default="1.0"/>
+  <arg name="grid_z_res"            default="0.2"/>
+  <arg name="grid_margin"           default="0.15"/>
+
+  <!-- Corridor Parameters-->
+  <arg name="box_xy_res"            default="0.05"/>
+  <arg name="box_z_res"             default="0.1"/>
+  <arg name="height"                default="0.3"/>
+
+  <!-- RBPPlanner Parameters -->
+  <arg name="plan_random_group"     default="false"/>
+  <arg name="initial_angle"         default="true"/>
+  <arg name="backward_enable"       default="false"/>
+
+<!-- Arguments End -->
+
+<!-- Nodes Start -->
+
+  <node pkg="octomap_server" type="octomap_server_node" name="octomap_server" unless="$(arg replay)">
+    <remap from="cloud_in" to="/random_map_generator/all_map" />
+    <param name="resolution"                 value="0.025" />
+    <param name="frame_id"                   value="world" type="string"/>
+    <param name="sensor_model/max_range"     value="5.0" />
+    <param name="height_map"                 value="true"/>
+    <param name="color/r"                    value="0.2" />
+    <param name="color/g"                    value="0.2" />
+    <param name="color/b"                    value="0.2" />
+    <param name="color/a"                    value="0.2" />
+  </node>
+
+  <node pkg="octomap_server" type="octomap_server_node" name="octomap_server" args="$(find multi_robot_traj_planner)/mapfile/$(arg replay_map)" if="$(arg replay)">
+    <param name="resolution"                 value="0.025" />
+    <param name="frame_id"                   value="world" type="string"/>
+    <param name="sensor_model/max_range"     value="5.0" />
+    <param name="height_map"                 value="true"/>
+    <param name="color/r"                    value="0.2" />
+    <param name="color/g"                    value="0.2" />
+    <param name="color/b"                    value="0.2" />
+    <param name="color/a"                    value="0.2" />
+	
+
+    <param name="filter_ground" type="bool" value="true" />
+    <param name="filter_speckles" type="bool" value="true" />
+    <param name="ground_filter/distance" type="double" value="0.1" />
+    <param name="ground_filter/plane_distance" type="double" value="0.1" />
+    <param name="occupancy_min_z" type="double" value="0.1" />
+    <param name="occupancy_max_z" type="double" value="1.6" />
+  </node>
+
+
+  <node pkg="multi_robot_traj_planner" type="prioritized_traj_planner" name="prioritized_traj_planner" output="screen">
+    <param name="log"                        value="$(arg log)" />
+    <param name="plan/random_group"          value="$(arg plan_random_group)" />
+    <param name="plan/initial_angle"         value="$(arg initial_angle)"/>
+    <param name="plan/backward_enable"       value="$(arg backward_enable)"/>
+    
+    <param name="mission"                    value="$(find multi_robot_traj_planner)/missions/$(arg mission)" />
+    
+    <param name="world/x_min"                value="$(arg world_x_min)" />
+    <param name="world/y_min"                value="$(arg world_y_min)" />
+    <param name="world/z_min"                value="$(arg world_z_min)" />
+    <param name="world/x_max"                value="$(arg world_x_max)" />
+    <param name="world/y_max"                value="$(arg world_y_max)" />
+    <param name="world/z_max"                value="$(arg world_z_max)" />
+
+    <param name="ecbs/w"                     value="$(arg ecbs_w)" />
+    <param name="grid/xy_res"                value="$(arg grid_xy_res)" />
+    <param name="grid/z_res"                 value="$(arg grid_z_res)" />
+    <param name="grid/margin"                value="$(arg grid_margin)" />
+
+    <param name="box/xy_res"                 value="$(arg box_xy_res)" />
+    <param name="box/z_res"                  value="$(arg box_z_res)" />
+    <param name="box/height"                 value="$(arg height)"    />
+
+  </node>
+
+  <node pkg="rosbag" type="record" name="rosbag_record" args="-a" if="$(arg bag_record)"/>
+
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find multi_robot_traj_planner)/launch/rviz_config/config_experiment.rviz" if="$(arg runsim)"/>  
+
+<!-- Nodes End -->
+</launch>
