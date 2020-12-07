@@ -55,7 +55,7 @@ roslaunch multi_robot_traj_planner prioritized_plan_warehouse.launch
 ```
 roslaunch multi_robot_traj_planner prioritized_plan_random_env.launch
 ```
-<img width="25%" height="25%" src="multi_robot_traj_planner/img/random_env.gif"/>
+<img width="26%" height="26%" src="multi_robot_traj_planner/img/random_env.gif"/>
 
 ## 3. Simulation Configuration
 You can configure the simulation settings in the launch files.
