@@ -10,6 +10,13 @@ Efficient Trajectory Planning for Multiple Non-holonomic Mobile Robots via Prior
 This paper proposes an efficient trajectory planning approach that generates safe, dynamically feasible and near-optimal trajectories
 for multiple non-holonomic mobile robots in obstacle-rich environments.
 
+Please click in the image to see our video:
+<p align='center'>
+<a href="https://youtu.be/GRl3LM8xBUQ">
+<img width="70%" length="70%" src="multi_robot_traj_planner/img/experiment.jpg"/>
+</a>
+</p>
+
 ## 1. Software Requirements
 * Ubuntu 16.04
 * ROS Kinetic
@@ -37,20 +44,31 @@ cd ../ && catkin_make
 source ~/catkin_ws/devel/setup.bash
 ```
 ## 2. Run Simulations
-There are two simulation environments available.
 #### Warehouse
 ```
 roslaunch multi_robot_traj_planner prioritized_plan_warehouse.launch 
 ```
 
-<img width="35%" height="35%" src="multi_robot_traj_planner/img/warehouse.gif"/>
+<img width="38%" height="38%" src="multi_robot_traj_planner/img/warehouse.gif"/>
 
 #### Environment with random obstacles
 ```
 roslaunch multi_robot_traj_planner prioritized_plan_random_env.launch
 ```
+<img width="25%" height="25%" src="multi_robot_traj_planner/img/random_env.gif"/>
+
 ## 3. Simulation Configuration
+You can configure the simulation settings in the launch files.
+
+(1) Environment: The simulation environment is selected by argument 'replay_map'. The build-in maps are located in /mapfile. 
+
+(2) Mission: The mission of the robots is selected by argument 'mission'. The build-in mission files are located in /missions.
+
+(3) Priority Assignment: A prioritized trajectory optimization method is applied to improve the computation efficiency. If argument 'plan_random_group' is true, the priority of the robots is randomly assigned. Otherwise, a novel priority assignment method proposed in the paper is applied.
+
+(4) Backward Movement: If argument 'backward_enable' is true, the robots are able to move backward. Otherwise, the robots can only have forward speed.
 
 
 ## 4. Acknowledgements
 
+This code is built based from [libMultiRobotPlanning](https://github.com/whoenig/libMultiRobotPlanning) and [swarm_simulator](https://github.com/qwerty35/swarm_simulator).
