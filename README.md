@@ -1,3 +1,4 @@
+
 # Multi-robot Trajectory Planner
 
 This repository contains the code for the paper:
@@ -12,32 +13,39 @@ for multiple non-holonomic mobile robots in obstacle-rich environments.
 ## 1. Software Requirements
 * Ubuntu 16.04
 * ROS Kinetic
-* octomap
+* Octomap
 * Ipopt
 
 ## 2. Installation instructions
-
-(1) Install ROS Kinetic for Ubuntu 16.04. 
+#### (1) Install ROS Kinetic for Ubuntu 16.04
 [ROS Installation](http://wiki.ros.org/ROS/Installation)
 
-(2) Install Ipopt.
+#### (2) Install Ipopt solver
+[Ipopt Installation](https://coin-or.github.io/Ipopt/INSTALL.html)
 
-(3) Install dependencies.
-
-(4) Build:
+#### (3) Install dependencies
+```
+sudo apt-get install ros-kinetic-octomap*
+sudo apt-get install ros-kinetic-dynamic-edt-3d
+sudo apt-get install cppad
+```
+#### (4) Build:
 ```
 cd ~/catkin_ws/src
-git clone 
-cd ../
-catkin_make
+git clone https://github.com/LIJUNCHENG001/multi_robot_traj_planner.git
+cd ../ && catkin_make
 source ~/catkin_ws/devel/setup.bash
 ```
-
 ## 2. Run Simulations
+There are two simulation environments available.
+#### Warehouse
 ```
-roslaunch 
+roslaunch multi_robot_traj_planner prioritized_plan_warehouse.launch 
 ```
-
+#### Random obstacles
+```
+roslaunch multi_robot_traj_planner prioritized_plan_random_env.launch
+```
 ## 3. Simulation Configuration
 
 

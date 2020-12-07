@@ -35,15 +35,6 @@ find_package(dynamicEDT3D REQUIRED)
 include_directories(${DYNAMICEDT3D_INCLUDE_DIRS})
 link_libraries(${DYNAMICEDT3D_LIBRARIES})
 
-#CPLEX
-add_definitions(-DNDEBUG)
-add_definitions(-DIL_STD)
-set(CONCERT_INCLUDE_DIR   ${CPLEX_PREFIX_DIR}/concert/include)
-set(CONCERT_LIBRARIES_DIR ${CPLEX_PREFIX_DIR}/concert/lib/x86-64_linux/static_pic)
-include_directories(${CONCERT_INCLUDE_DIR})
-link_directories(${CONCERT_LIBRARIES_DIR})
-
-
 #CATKIN
 find_package(catkin REQUIRED COMPONENTS
   roscpp
@@ -58,9 +49,6 @@ catkin_package(
   INCLUDE_DIRS include
   CATKIN_DEPENDS roscpp roslib message_runtime
 )
-
-#MATPLOTLIB-CPP
-find_package(PythonLibs 2.7)
 
 #BUILD
 add_executable(random_map_generator src/random_map_generator.cpp)
