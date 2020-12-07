@@ -42,7 +42,10 @@ There are two simulation environments available.
 ```
 roslaunch multi_robot_traj_planner prioritized_plan_warehouse.launch 
 ```
-#### Random obstacles
+
+<img width="35%" height="35%" src="multi_robot_traj_planner/img/warehouse.gif"/>
+
+#### Environment with random obstacles
 ```
 roslaunch multi_robot_traj_planner prioritized_plan_random_env.launch
 ```
