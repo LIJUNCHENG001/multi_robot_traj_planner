@@ -25,10 +25,10 @@ Please click in the image to see our video:
 
 ## 2. Installation instructions
 #### (1) Install ROS Kinetic for Ubuntu 16.04
-[ROS Installation](http://wiki.ros.org/ROS/Installation)
+Follow [ROS Installation](http://wiki.ros.org/ROS/Installation)
 
 #### (2) Install Ipopt solver
-[Ipopt Installation](https://coin-or.github.io/Ipopt/INSTALL.html)
+Follow [Ipopt Installation](https://coin-or.github.io/Ipopt/INSTALL.html)
 
 #### (3) Install dependencies
 ```
@@ -71,4 +71,4 @@ You can configure the simulation settings in the launch files.
 
 ## 4. Acknowledgements
 
-This code is built based from [libMultiRobotPlanning](https://github.com/whoenig/libMultiRobotPlanning) and [swarm_simulator](https://github.com/qwerty35/swarm_simulator).
+Thanks for [libMultiRobotPlanning](https://github.com/whoenig/libMultiRobotPlanning) and [swarm_simulator](https://github.com/qwerty35/swarm_simulator).
