@@ -13,7 +13,7 @@ for multiple non-holonomic mobile robots in obstacle-rich environments.
 Please click in the image to see our video:
 <p align='center'>
 <a href="https://youtu.be/GRl3LM8xBUQ">
-<img width="55%" length="55%" src="multi_robot_traj_planner/img/experiment.jpg"/>
+<img width="59%" length="59%" src="multi_robot_traj_planner/img/experiment.jpg"/>
 </a>
 </p>
 
@@ -57,7 +57,7 @@ roslaunch multi_robot_traj_planner prioritized_plan_warehouse.launch
 roslaunch multi_robot_traj_planner prioritized_plan_random_env.launch
 ```
 <p align='center'>
-<img width="21%" height="21%" src="multi_robot_traj_planner/img/random_env.gif"/>
+<img width="22%" height="22%" src="multi_robot_traj_planner/img/random_env.gif"/>
 </p>
 
 ## 3. Simulation Configuration
