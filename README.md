@@ -13,7 +13,7 @@ for multiple non-holonomic mobile robots in obstacle-rich environments.
 Please click in the image to see our video:
 <p align='center'>
 <a href="https://youtu.be/GRl3LM8xBUQ">
-<img width="70%" length="70%" src="multi_robot_traj_planner/img/experiment.jpg"/>
+<img width="55%" length="55%" src="multi_robot_traj_planner/img/experiment.jpg"/>
 </a>
 </p>
 
@@ -48,14 +48,17 @@ source ~/catkin_ws/devel/setup.bash
 ```
 roslaunch multi_robot_traj_planner prioritized_plan_warehouse.launch 
 ```
-
-<img width="38%" height="38%" src="multi_robot_traj_planner/img/warehouse.gif"/>
+<p align='center'>
+<img width="28%" height="28%" src="multi_robot_traj_planner/img/warehouse.gif"/>
+</p>
 
 #### Environment with random obstacles
 ```
 roslaunch multi_robot_traj_planner prioritized_plan_random_env.launch
 ```
-<img width="26%" height="26%" src="multi_robot_traj_planner/img/random_env.gif"/>
+<p align='center'>
+<img width="21%" height="21%" src="multi_robot_traj_planner/img/random_env.gif"/>
+</p>
 
 ## 3. Simulation Configuration
 You can configure the simulation settings in the launch files.
