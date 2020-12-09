@@ -124,8 +124,16 @@ private:
                 return false;
             }
 
-            ecbs_startStates.emplace_back(State(0, xig, yig, zig));
-            ecbs_goalLocations.emplace_back(Location(xfg, yfg, zfg));
+            if (param.initial_angle)
+            {
+                ecbs_startStates.emplace_back(State(0, xig, yig, mission.startState[i][2]));
+                ecbs_goalLocations.emplace_back(Location(xfg, yfg, mission.goalState[i][2]));
+            }
+            else
+            {
+                ecbs_startStates.emplace_back(State(0, xig, yig, zig));
+                ecbs_goalLocations.emplace_back(Location(xfg, yfg, zfg));
+            }
         }
         return true;
     }
