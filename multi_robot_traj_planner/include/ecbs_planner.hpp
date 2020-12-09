@@ -82,8 +82,8 @@ private:
 
         int x,y,z;
         for (double k = grid_z_min; k < grid_z_max + SP_EPSILON; k += param.grid_z_res ){
-            for (double i = grid_x_min; i < grid_x_max + SP_EPSILON; i += 0.2 ){
-                for (double j = grid_y_min; j < grid_y_max + SP_EPSILON; j += 0.2 ){
+            for (double i = grid_x_min; i < grid_x_max + SP_EPSILON; i += param.grid_xy_res*0.2 ){
+                for (double j = grid_y_min; j < grid_y_max + SP_EPSILON; j += param.grid_xy_res*0.2 ){
                     octomap::point3d cur_point(i,j,k);
                     float dist = distmap_obj.get()->getDistance(cur_point);
                     if(dist < 0){
@@ -92,8 +92,8 @@ private:
 
                     // To prevent obstacles from putting between grid points, grid_margin is used
                     if (dist < r + param.grid_margin){
-                        x = (int)round((i - grid_x_min) / 0.2);
-                        y = (int)round((j - grid_y_min) / 0.2);
+                        x = (int)round((i - grid_x_min) / (param.grid_xy_res*0.2));
+                        y = (int)round((j - grid_y_min) / (param.grid_xy_res*0.2));
                         z = (int)round((k - grid_z_min) / param.grid_z_res);
                         ecbs_obstacles.insert(Location(x, y, z));
                     }
