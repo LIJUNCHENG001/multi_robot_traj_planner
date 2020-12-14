@@ -33,7 +33,7 @@ void octomapCallback(const octomap_msgs::Octomap& octomap_msg)
 }
 
 int main(int argc, char* argv[]) {
-    ROS_INFO("Multi-robot Trajectory Planning");
+
     ros::init (argc, argv, "swarm_traj_planner_rbp");
     ros::NodeHandle nh( "~" );
     ros::Subscriber octomap_sub = nh.subscribe( "/octomap_full", 1, octomapCallback );
@@ -74,10 +74,8 @@ int main(int argc, char* argv[]) {
 
     while (ros::ok()) {
         if (has_octomap && !has_path) {
-            timer_total.reset();
 
             // Build 3D Euclidean Distance Field
-            timer_step.reset();
             {
                 float maxDist = 1;
                 octomap::point3d min_point3d(param.world_x_min, param.world_y_min, param.world_z_min);
@@ -85,8 +83,9 @@ int main(int argc, char* argv[]) {
                 distmap_obj.reset(new DynamicEDTOctomap(maxDist, octree_obj.get(), min_point3d, max_point3d, false));
                 distmap_obj.get()->update();
             }
-            timer_step.stop();
-            ROS_INFO_STREAM("Distmap runtime: " << timer_step.elapsedSeconds());
+
+            timer_total.reset();
+            ROS_INFO("Multi-robot Trajectory Planning");
 
             // Step 1: Plan Initial Trajectory
             timer_step.reset();
