@@ -26,13 +26,6 @@ namespace SwarmPlanning{
         double box_z_res;
 
         double time_step;
-        double downwash; // downwash coefficient
-        int iteration;
-        bool sequential;
-        int batch_size; // the number of agents in a batch
-        int N_b; // the number of batches
-        int n; // degree of polynomial
-        int phi; // desired derivatives
 
         bool random_group;
         bool initial_angle;
@@ -69,9 +62,6 @@ namespace SwarmPlanning{
         nh.param<bool>("plan/initial_angle", initial_angle, false);
         nh.param<bool>("plan/backward_enable", backward_enable, false);
         nh.param<double>("plan/time_step", time_step, 1);
-        nh.param<double>("plan/downwash", downwash, 2.0);
-        nh.param<int>("plan/n", n, 5);
-        nh.param<int>("plan/phi", phi, 3);
         
 
         package_path = ros::package::getPath("multi_robot_traj_planner");

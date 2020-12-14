@@ -76,19 +76,7 @@ void RandomMapGenerate(const SwarmPlanning::Mission& mission)
         else if(obs_iter%3==1)
             y=2;
         else y=-2;
-    /*
-        bool quadInObs = false;
-        for (int qi = 0; qi < mission.qn; qi++) {
-            if (sqrt(pow(x - mission.startState[qi][0], 2) + pow(y - mission.startState[qi][1], 2)) < mission.quad_size[qi] + w + margin ||
-                sqrt(pow(x - mission.goalState[qi][0], 2) + pow(y - mission.goalState[qi][1], 2)) < mission.quad_size[qi] + w  + margin){
-                quadInObs = true;
-                break;
-            }
-        }
-        if(quadInObs){
-            continue;
-        }
-        */
+
         x = floor(x/resolution) * resolution + resolution / 2.0;
         y = floor(y/resolution) * resolution + resolution / 2.0;
 
@@ -158,19 +146,6 @@ void RandomMapGenerate(const SwarmPlanning::Mission& mission)
             hh=5;
         }
 
-    /*
-        bool quadInObs = false;
-        for (int qi = 0; qi < mission.qn; qi++) {
-            if (sqrt(pow(x - mission.startState[qi][0], 2) + pow(y - mission.startState[qi][1], 2)) < mission.quad_size[qi] + w + margin ||
-                sqrt(pow(x - mission.goalState[qi][0], 2) + pow(y - mission.goalState[qi][1], 2)) < mission.quad_size[qi] + w  + margin){
-                quadInObs = true;
-                break;
-            }
-        }
-        if(quadInObs){
-            continue;
-        }
-        */
         x = floor(x/resolution) * resolution + resolution / 2.0;
         y = floor(y/resolution) * resolution + resolution / 2.0;
 

@@ -129,23 +129,7 @@ class FG_eval {
           }
           agent_col_num.emplace_back(count);
         }
-        /*
-        for (int j=0;j<agent_col_num.size();j++)
-          std::cout<<agent_col_num[j]<<std::endl;
-        */
 
-        /*
-        int cont=N*3*qn+1;
-        for (int qi=0; qi<qn;qi++){
-          for (int qj=qi+1;qj<qn;qj++){
-              for (int i=0;i<int(N/2);i++){
-                fg[cont]=CppAD::pow(vars[x_start+N*qi+5*i]-vars[x_start+N*qj+5*i],2)
-                        +CppAD::pow(vars[y_start+N*qi+5*i]-vars[y_start+N*qj+5*i],2);
-                cont++;
-            }
-          }
-        }
-        */
         int cont=N*3*qn+1;
         for (int i=0;i<relative_pair.size();i++)
         {
@@ -285,10 +269,6 @@ public:
         }
       }
 
-      
-        offset_dim = param.batch_size * M * (qn + 1);
-        offset_quad = M * (qn + 1);
-        offset_seg = qn + 1;
     }
 
     void Solve() {
@@ -511,7 +491,7 @@ private:
     std::vector<double> T;
     SFC_t SFC;
 
-    int M, phi, outdim, offset_dim, offset_quad, offset_seg;
+    int M, phi, outdim;
 
     // std::shared_ptr<Eigen::MatrixXd> Q_obj, Aeq_obj, Alq_obj, deq_obj, dlq_obj;
     Eigen::MatrixXd Q_base, Aeq_base, Alq, deq, dlq, basis;

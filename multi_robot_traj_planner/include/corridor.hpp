@@ -224,9 +224,7 @@ private:
                 box.emplace_back(round(std::max(x,x_next) / param.box_xy_res) * param.box_xy_res);
                 box.emplace_back(round(std::max(y,y_next) / param.box_xy_res) * param.box_xy_res);
                 box.emplace_back(round(std::max(z,z_next) / param.box_z_res) * param.box_z_res);
-//              box.emplace_back(round(std::max(x,x_next) / param.box_xy_res) * param.box_xy_res + param.box_xy_res);
-//              box.emplace_back(round(std::max(y,y_next) / param.box_xy_res) * param.box_xy_res + param.box_xy_res);
-//              box.emplace_back(round(std::max(z,z_next) / param.box_z_res) * param.box_z_res + param.box_z_res);
+                box.emplace_back(round(std::max(z,z_next) / param.box_z_res) * param.box_z_res + param.box_z_res);
 
 
 

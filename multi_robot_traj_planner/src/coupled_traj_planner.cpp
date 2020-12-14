@@ -111,7 +111,7 @@ int main(int argc, char* argv[]) {
             ROS_INFO_STREAM("Safe Corridor runtime: " << timer_step.elapsedSeconds());
             
             
-            // Step 3: Formulate QP problem and solving it to generate trajectory for quadrotor swarm
+            // Step 3: Formulate NLP problem and solving it to generate trajectory for the robot team
             timer_step.reset();
             {
                 MPCPlanner_obj.reset(new MPCPlanner(corridor_obj, initTrajPlanner_obj, mission, param));

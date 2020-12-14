@@ -102,20 +102,15 @@ private:
 
     int qn, M, outdim;
     double global_min_dist;
-    tf::TransformBroadcaster br;
-    std::vector<Eigen::MatrixXd> pva;
-    std::vector<Eigen::MatrixXd> coef;
     std::vector<std::vector<double>> currentState;
     std::vector<double> T, t, max_dist, min_dist;
     std::vector<std::vector<std::vector<double>>> quad_state;
 
     // ROS publisher
     ros::Publisher traj_info_pub;
-    std::vector<ros::Publisher> traj_coef_pubs;
     std::vector<ros::Publisher> traj_pubs;
     ros::Publisher initTraj_pub;
     ros::Publisher obsBox_pub;
-    std::vector<ros::Publisher> relBox_pubs;
     ros::Publisher feasibleBox_pub;
     ros::Publisher colBox_pub;
     ros::Publisher colBox_pub2;
@@ -125,7 +120,6 @@ private:
     std::vector<nav_msgs::Path> msgs_traj;
     visualization_msgs::MarkerArray msgs_initTraj;
     visualization_msgs::MarkerArray msgs_obsBox;
-    std::vector<visualization_msgs::MarkerArray> msgs_relBox;
     visualization_msgs::MarkerArray msgs_feasibleBox;
     visualization_msgs::MarkerArray msgs_colBox;
     visualization_msgs::MarkerArray msgs_colBox2;

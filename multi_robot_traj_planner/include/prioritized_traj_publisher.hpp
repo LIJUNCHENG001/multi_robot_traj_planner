@@ -185,25 +185,6 @@ private:
             pos_des.pose.position.z = 0;
             msgs_traj[qi].poses.emplace_back(pos_des);
 
-            /*
-            currentState[qi][0] = pva[qi](0,0);
-            currentState[qi][1] = pva[qi](0,1);
-            currentState[qi][2] = pva[qi](0,2);
-            currentState[qi][3] = pva[qi](1,0);
-            currentState[qi][4] = pva[qi](1,1);
-            currentState[qi][5] = pva[qi](1,2);
-            currentState[qi][6] = pva[qi](2,0);
-            currentState[qi][7] = pva[qi](2,1);
-            currentState[qi][8] = pva[qi](2,2);
-
-            tf::Transform transform;
-            transform.setOrigin(tf::Vector3(pva[qi](0,0), pva[qi](0,1), pva[qi](0,2)));
-            tf::Quaternion q;
-            q.setRPY(0,0,0);
-            transform.setRotation(q);
-            br.sendTransform(tf::StampedTransform(transform, ros::Time::now(),
-                    "world", "/mav"+std::to_string(qi)+"/base_link"));
-                    */
         }
     }
 
@@ -338,11 +319,7 @@ private:
                 {
                     mk.type = visualization_msgs::Marker::MESH_RESOURCE;
                     mk.mesh_resource = std::string("package://multi_robot_traj_planner/chassis.dae");
-                    /*
-                    mk.scale.x = 2 * mission.quad_size[qi];
-                    mk.scale.y = 2 * mission.quad_size[qi];
-                    mk.scale.z = 2 * mission.quad_size[qi] * param.downwash;
-                    */
+
                     mk.scale.x=0.7;
                     mk.scale.y=0.7;
                     mk.scale.z=0.7;
@@ -366,23 +343,6 @@ private:
                 mk.color.r = param.color[qi][0];
                 mk.color.g = param.color[qi][1];
                 mk.color.b = param.color[qi][2];
-
-
-    //            if(param.gn == 0 && qi < param.group){
-    //                mk.color.a = 0.7;
-    //                mk.color.r = 0;
-    //                mk.color.g = 0;
-    //                mk.color.b = 0;
-    //            }
-    //            else if(param.gn == 1 && qi >= param.group){
-    //                mk.color.a = 0.7;
-    //                mk.color.r = 0;
-    //                mk.color.g = 0;
-    //                mk.color.b = 0;
-    //            }
-    //            else{
-    ////                mk.color.a = 0;
-    //            }
 
                 if (i==0)
                     mk_array.markers.emplace_back(mk);

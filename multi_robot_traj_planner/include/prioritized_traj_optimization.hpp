@@ -818,9 +818,6 @@ private:
 
     int M, phi, outdim;
 
-    // std::shared_ptr<Eigen::MatrixXd> Q_obj, Aeq_obj, Alq_obj, deq_obj, dlq_obj;
-    Eigen::MatrixXd Q_base, Aeq_base, Alq, deq, dlq, basis;
-    Eigen::MatrixXd dummy;
     std::vector<Eigen::MatrixXd> coef;
 
 

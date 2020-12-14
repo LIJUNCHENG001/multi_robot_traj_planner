@@ -2,7 +2,7 @@
 <package>
   <name>multi_robot_traj_planner</name>
   <version>0.0.1</version>
-  <description> multi-robot trajectory planner </description>
+  <description> Multi-robot trajectory planner </description>
   <maintainer email="juncheng001@ntu.edu.sg">Juncheng Li</maintainer>
   <license>MIT</license>
 

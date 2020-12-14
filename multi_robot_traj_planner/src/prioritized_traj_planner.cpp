@@ -100,7 +100,7 @@ int main(int argc, char* argv[]) {
             ROS_INFO_STREAM("ECBS Planner runtime: " << timer_step.elapsedSeconds());
 
             
-            // Step 2: Generate SFC, RSFC
+            // Step 2: Generate Safe Corridor
             timer_step.reset();
             {
                 corridor_obj.reset(new Corridor(initTrajPlanner_obj, distmap_obj, mission, param));
@@ -112,7 +112,7 @@ int main(int argc, char* argv[]) {
             ROS_INFO_STREAM("Safe Corrifor runtime: " << timer_step.elapsedSeconds());
             
             
-            // Step 3: Formulate QP problem and solving it to generate trajectory for quadrotor swarm
+            // Step 3: Formulate NLP problem and solving it to generate trajectory for the robot team
             timer_step.reset();
             {
                 MPCPlanner_obj.reset(new MPCPlanner(corridor_obj, initTrajPlanner_obj, mission, param));

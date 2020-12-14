@@ -1,16 +1,13 @@
 <!-- 
-	PLAN_RBP_RANDOM_FOREST.LAUNCH
-	Multi-agent Trajectory Planning and Simulation using Relative Bernstein Polynomial
-        
-	Usage: At terminal
+  Efficient Trajectory Planning for Multiple Non-holonomic Mobile Robots via Prioritized Trajectory Optimization
+  Usage: At terminal
                ``` 
-               roslaunch multi_robot_traj_planner plan_rbp_random_forest.launch
+               roslaunch multi_robot_traj_planner plan_warehouse.launch 
                ```
-
-	Jungwon Park
-	Lab for Autonomous Robotics Research
-	Seoul National Univ. 
-	wjstk335@gmail.com
+               
+  Juncheng Li
+  Nanyang Technological University 
+  juncheng001@e.ntu.edu.sg
 -->
 
 <launch>
