@@ -35,8 +35,8 @@ public:
         int makespan = 0;
         for (const auto &s : solution) {
             cost += s.cost;
-            makespan = std::max<int>(makespan, s.cost);
-            //makespan = std::max<int>(makespan, s.states.size());
+            //makespan = std::max<int>(makespan, s.cost);
+            makespan = std::max<int>(makespan, s.states.size());
         }
         for(int i = 0; i <= makespan + 2; i++){
             T.emplace_back(i * param.time_step);
