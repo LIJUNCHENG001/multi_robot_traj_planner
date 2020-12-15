@@ -74,4 +74,4 @@ You can configure the simulation settings in the launch files.
 
 ## 4. Acknowledgements
 
-Thanks for [libMultiRobotPlanning](https://github.com/whoenig/libMultiRobotPlanning) and [swarm_simulator](https://github.com/qwerty35/swarm_simulator).
+Our implementation is built on top of [libMultiRobotPlanning](https://github.com/whoenig/libMultiRobotPlanning) and [swarm_simulator](https://github.com/qwerty35/swarm_simulator). We thank Wolfgang Hönig and Jungwon Park for their great work.
