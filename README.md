@@ -3,9 +3,11 @@
 
 This repository contains the code for the paper:
 
-Efficient Trajectory Planning for Multiple Non-holonomic Mobile Robots via Prioritized Trajectory Optimization
+<a href="https://ieeexplore.ieee.org/document/9293348">Efficient Trajectory Planning for Multiple Non-holonomic Mobile Robots via Prioritized Trajectory Optimization</a>
 
 **Authors:** Juncheng Li, Maopeng Ran, and Lihua Xie from Nanyang Technological University.
+
+Accepted in IEEE Robotics and Automation Letters (RA-L). You can find the full-text paper <a href="https://arxiv.org/abs/2012.08135">here</a>.
 
 This paper proposes an efficient trajectory planning approach that generates safe, dynamically feasible and near-optimal trajectories
 for multiple non-holonomic mobile robots in obstacle-rich environments.
