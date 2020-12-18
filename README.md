@@ -15,7 +15,7 @@ for multiple non-holonomic mobile robots in obstacle-rich environments.
 Please click in the image to see our video:
 <p align='center'>
 <a href="https://youtu.be/GRl3LM8xBUQ">
-<img width="63%" length="63%" src="multi_robot_traj_planner/img/experiment.jpg"/>
+<img width="63%" length="70%" src="multi_robot_traj_planner/img/experiment.jpg"/>
 </a>
 </p>
 
@@ -51,7 +51,7 @@ source ~/catkin_ws/devel/setup.bash
 roslaunch multi_robot_traj_planner prioritized_plan_warehouse.launch 
 ```
 <p align='center'>
-<img width="32%" height="32%" src="multi_robot_traj_planner/img/warehouse.gif"/>
+<img width="35%" height="35%" src="multi_robot_traj_planner/img/warehouse.gif"/>
 </p>
 
 #### Environment with random obstacles
@@ -59,7 +59,7 @@ roslaunch multi_robot_traj_planner prioritized_plan_warehouse.launch
 roslaunch multi_robot_traj_planner prioritized_plan_random_env.launch
 ```
 <p align='center'>
-<img width="25%" height="25%" src="multi_robot_traj_planner/img/random_env.gif"/>
+<img width="28%" height="28%" src="multi_robot_traj_planner/img/random_env.gif"/>
 </p>
 
 ## 3. Simulation Configuration
