@@ -25,7 +25,7 @@ find_package(PCL REQUIRED)
 include_directories(${PCL_INCLUDE_DIRS})
 
 #OCTOMAP
-find_package(octomap REQUIRED)
+find_package(octomap_ros REQUIRED)
 include_directories(${OCTOMAP_INCLUDE_DIRS})
 link_libraries(${OCTOMAP_LIBRARIES})
 add_definitions(-DOCTOMAP_NODEBUGOUT)
