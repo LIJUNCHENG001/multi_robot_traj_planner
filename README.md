@@ -20,7 +20,7 @@ Please click in the image to see our video:
 </p>
 
 ## 1. Software Requirements
-* Ubuntu 16.04
+* Ubuntu 16.04 to 20.04
 * ROS Kinetic
 * Octomap
 * Ipopt
